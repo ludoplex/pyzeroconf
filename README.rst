@@ -2,7 +2,7 @@ Multicast DNS Service Discovery for Python
 ==========================================
 
 :Authors: Originally by Paul Scott-Murphy, modified by William McBrine
-:Version: 0.14-wmcbrine
+:Version: 0.15-wmcbrine
 
 zeroconf.py is the implementation file; look at the end for examples of 
 basic use. You can also view zwebbrowse.py to see how to browse for 
@@ -23,6 +23,9 @@ Long-term goals: Python 3.x
 
 History
 -------
+
+0.15
+ - New minimum version is Python 2.6.
 
 0.14
  - Fix for SOL_IP undefined on some systems - thanks Mike Erdely.
