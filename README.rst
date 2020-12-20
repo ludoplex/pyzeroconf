@@ -18,14 +18,13 @@ they're generally applicable. This version also includes patches found
 on the now-defunct (?) Launchpad repo of pyzeroconf, and elsewhere 
 around the net -- not always well-documented, sorry.
 
-Long-term goals: Python 3.x
-
 
 History
 -------
 
 0.15
- - New minimum version is Python 2.6.
+ - Compatible with both Python 3.x and 2.x. The oldest working version 
+   is now 2.6.
 
 0.14
  - Fix for SOL_IP undefined on some systems - thanks Mike Erdely.
