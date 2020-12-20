@@ -13,9 +13,13 @@ info = ServiceInfo("_http._tcp.local.",
                    desc, "ash-2.local.")
 
 r = Zeroconf()
-print "Registration of a service..."
+print("Registration of a service...")
 r.registerService(info)
-raw_input("Waiting (press Enter to exit)...")
-print "Unregistering..."
+waiting = "Waiting (press Enter to exit)..."
+if pythree:
+    input(waiting)
+else:
+    raw_input(waiting)
+print("Unregistering...")
 r.unregisterService(info)
 r.close()

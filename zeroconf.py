@@ -37,7 +37,7 @@ from functools import reduce
 
 pythree = (sys.version_info[0] == 3)
 
-__all__ = ["Zeroconf", "ServiceInfo", "ServiceBrowser"]
+__all__ = ["Zeroconf", "ServiceInfo", "ServiceBrowser", "pythree"]
 
 # hook for threads
 
@@ -1201,6 +1201,7 @@ class Zeroconf(object):
                 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
                 s.connect(('4.2.2.1', 123))
                 self.intf = s.getsockname()[0]
+                s.close()
             except:
                 self.intf = socket.gethostbyname(socket.gethostname())
         else:

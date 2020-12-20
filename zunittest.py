@@ -41,19 +41,19 @@ class PacketForm(unittest.TestCase):
         """ID must be zero in a DNS-SD packet"""
         generated = r.DNSOutgoing(r._FLAGS_QR_QUERY)
         bytes = generated.packet()
-        id = ord(bytes[0]) << 8 | ord(bytes[1])
+        id = r.getByte(bytes[0]) << 8 | r.getByte(bytes[1])
         self.assertEqual(id, 0)
 
     def testQueryHeaderBits(self):
         generated = r.DNSOutgoing(r._FLAGS_QR_QUERY)
         bytes = generated.packet()
-        flags = ord(bytes[2]) << 8 | ord(bytes[3])
+        flags = r.getByte(bytes[2]) << 8 | r.getByte(bytes[3])
         self.assertEqual(flags, 0x0)
 
     def testResponseHeaderBits(self):
         generated = r.DNSOutgoing(r._FLAGS_QR_RESPONSE)
         bytes = generated.packet()
-        flags = ord(bytes[2]) << 8 | ord(bytes[3])
+        flags = r.getByte(bytes[2]) << 8 | r.getByte(bytes[3])
         self.assertEqual(flags, 0x8000)
 
     def testNumbers(self):
@@ -69,7 +69,7 @@ class PacketForm(unittest.TestCase):
     def testNumbersQuestions(self):
         generated = r.DNSOutgoing(r._FLAGS_QR_RESPONSE)
         question = r.DNSQuestion("testname.local.", r._TYPE_SRV, r._CLASS_IN)
-        for i in xrange(10):
+        for i in range(10):
             generated.addQuestion(question)
         bytes = generated.packet()
         (numQuestions, numAnswers, numAuthorities,
