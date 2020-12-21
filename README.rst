@@ -2,7 +2,7 @@ Multicast DNS Service Discovery for Python
 ==========================================
 
 :Authors: Originally by Paul Scott-Murphy, modified by William McBrine
-:Version: 0.15-wmcbrine
+:Version: 0.16-wmcbrine
 
 zeroconf.py is the implementation file; look at the end for examples of 
 basic use. You can also view zwebbrowse.py to see how to browse for 
@@ -21,6 +21,10 @@ around the net -- not always well-documented, sorry.
 
 History
 -------
+
+0.16
+ - Under Python 3 on Windows, there was an unsuppressed warning on 
+   closing (reported as socket.EBADF on other platforms).
 
 0.15
  - Compatible with both Python 3.x and 2.x. The oldest working version 
