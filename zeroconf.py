@@ -142,7 +142,7 @@ def getByte(n):
 
 def putByte(n):
     if pythree:
-        return n.to_bytes(1, byteorder='little')
+        return n.to_bytes(1, 'little')
     else:
         return chr(n)
 
@@ -839,7 +839,7 @@ class Listener(object):
         except socket.error as e:
             # If the socket was closed by another thread -- which happens
             # regularly on shutdown -- an EBADF exception is thrown here.
-            # Ignore it.
+            # (Under Windows, it instead appears as error 10038.) Ignore it.
             if e.args[0] in (socket.EBADF, 10038):
                 return
             else:
@@ -1474,7 +1474,7 @@ class Zeroconf(object):
         for question in msg.questions:
             if question.type == _TYPE_PTR:
                 if question.name == "_services._dns-sd._udp.local.":
-                    for stype in self.servicetypes.keys():
+                    for stype in self.servicetypes:
                         if out is None:
                             out = DNSOutgoing(_FLAGS_QR_RESPONSE | _FLAGS_AA)
                         out.addAnswer(msg,
