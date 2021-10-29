@@ -35,7 +35,7 @@ import select
 import traceback
 from functools import reduce
 
-pythree = (sys.version_info[0] == 3)
+pythree = (sys.version_info[0] >= 3)
 
 __all__ = ["Zeroconf", "ServiceInfo", "ServiceBrowser", "pythree"]
 
