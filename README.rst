@@ -4,18 +4,18 @@ Multicast DNS Service Discovery for Python
 :Authors: Originally by Paul Scott-Murphy, modified by William McBrine
 :Version: 0.16-wmcbrine
 
-zeroconf.py is the implementation file; look at the end for examples of 
-basic use. You can also view zwebbrowse.py to see how to browse for 
+zeroconf.py is the implementation file; look at the end for examples of
+basic use. You can also view zwebbrowse.py to see how to browse for
 services, and zwebtest.py for an example of announcing them.
 
-This fork is used in all of my TiVo-related projects: HME for Python 
-(and therefore HME/VLC), Network Remote, Remote Proxy, and pyTivo. 
-Before this, I was tracking the changes for zeroconf.py in three 
+This fork is used in all of my TiVo-related projects: HME for Python
+(and therefore HME/VLC), Network Remote, Remote Proxy, and pyTivo.
+Before this, I was tracking the changes for zeroconf.py in three
 separate repos. I figured I should have an authoritative source.
 
-Although I make changes based on my experience with TiVos, I expect that 
-they're generally applicable. This version also includes patches found 
-on the now-defunct (?) Launchpad repo of pyzeroconf, and elsewhere 
+Although I make changes based on my experience with TiVos, I expect that
+they're generally applicable. This version also includes patches found
+on the now-defunct (?) Launchpad repo of pyzeroconf, and elsewhere
 around the net -- not always well-documented, sorry.
 
 
@@ -23,11 +23,11 @@ History
 -------
 
 0.16
- - Under Python 3 on Windows, there was an unsuppressed warning on 
+ - Under Python 3 on Windows, there was an unsuppressed warning on
    closing (reported as socket.EBADF on other platforms).
 
 0.15
- - Compatible with both Python 3.x and 2.x. The oldest working version 
+ - Compatible with both Python 3.x and 2.x. The oldest working version
    is now 2.6.
 
 0.14
