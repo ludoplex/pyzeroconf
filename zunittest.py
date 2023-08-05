@@ -69,7 +69,7 @@ class PacketForm(unittest.TestCase):
     def testNumbersQuestions(self):
         generated = r.DNSOutgoing(r._FLAGS_QR_RESPONSE)
         question = r.DNSQuestion("testname.local.", r._TYPE_SRV, r._CLASS_IN)
-        for i in range(10):
+        for _ in range(10):
             generated.addQuestion(question)
         bytes = generated.packet()
         (numQuestions, numAnswers, numAuthorities,
@@ -90,13 +90,13 @@ class Names(unittest.TestCase):
 
     def testExceedinglyLongName(self):
         generated = r.DNSOutgoing(r._FLAGS_QR_RESPONSE)
-        name = "%slocal." % ("part." * 1000)
+        name = f'{"part." * 1000}local.'
         question = r.DNSQuestion(name, r._TYPE_SRV, r._CLASS_IN)
         generated.addQuestion(question)
         parsed = r.DNSIncoming(generated.packet())
 
     def testExceedinglyLongNamePart(self):
-        name = "%s.local." % ("a" * 1000)
+        name = f'{"a" * 1000}.local.'
         generated = r.DNSOutgoing(r._FLAGS_QR_RESPONSE)
         question = r.DNSQuestion(name, r._TYPE_SRV, r._CLASS_IN)
         generated.addQuestion(question)
