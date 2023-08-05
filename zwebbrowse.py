@@ -12,24 +12,22 @@ class MyListener(object):
 
     def removeService(self, zeroconf, type, name):
         print('')
-        print("Service %s removed" % name)
+        print(f"Service {name} removed")
 
     def addService(self, zeroconf, type, name):
         print('')
-        print("Service %s added" % name)
-        print("  Type is %s" % type)
-        info = self.r.getServiceInfo(type, name)
-        if info:
+        print(f"Service {name} added")
+        print(f"  Type is {type}")
+        if info := self.r.getServiceInfo(type, name):
             print("  Address is %s:%d" % (socket.inet_ntoa(info.getAddress()),
                                           info.getPort()))
             print("  Weight is %d, Priority is %d" % (info.getWeight(),
                                                       info.getPriority()))
-            print("  Server is %s" % info.getServer())
-            prop = info.getProperties()
-            if prop:
+            print(f"  Server is {info.getServer()}")
+            if prop := info.getProperties():
                 print("  Properties are")
                 for key, value in prop.items():
-                    print("    %s: %s" % (key, value))
+                    print(f"    {key}: {value}")
 
 if __name__ == '__main__':
     print("Multicast DNS Service Discovery for Python Browser test")
